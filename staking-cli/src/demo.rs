@@ -18,7 +18,10 @@ use alloy::{
     },
 };
 use anyhow::Result;
-use hotshot_contract_adapter::sol_types::EspToken;
+use hotshot_contract_adapter::{
+    evm::DecodeRevert,
+    sol_types::EspToken::{self, EspTokenErrors},
+};
 use hotshot_types::{light_client::StateKeyPair, signature_key::BLSKeyPair};
 use rand::{Rng, SeedableRng};
 use rand_chacha::ChaCha20Rng;
@@ -114,7 +117,8 @@ pub async fn stake_in_contract_for_test(
         let receipt = token
             .transfer(validator_address, fund_amount_esp)
             .send()
-            .await?
+            .await
+            .maybe_decode_revert::<EspTokenErrors>()?
             .get_receipt()
             .await?;
         assert!(receipt.status());
@@ -124,7 +128,8 @@ pub async fn stake_in_contract_for_test(
         let receipt = validator_token
             .approve(stake_table_address, fund_amount_esp)
             .send()
-            .await?
+            .await
+            .maybe_decode_revert::<EspTokenErrors>()?
             .get_receipt()
             .await?;
         assert!(receipt.status());
