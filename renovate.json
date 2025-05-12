@@ -7,9 +7,9 @@
   "packageRules": [
     {
       "matchManagers": ["cargo"],
-      "managerFilePatterns": [
-        "/(^|/)Cargo\\.toml$/",
-        "/(^|/)Cargo\\.lock$/"
+      "matchPaths": [
+        "**/Cargo.toml",
+        "**/Cargo.lock"
       ],
       "groupName": "Cargo lockfile updates"
     }
