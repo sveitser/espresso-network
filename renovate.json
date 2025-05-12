@@ -7,8 +7,18 @@
   "packageRules": [
     {
       "matchManagers": ["cargo"],
-      "matchPaths": ["**/Cargo.lock"],
+      "matchPaths": [
+        "**/Cargo.toml",
+        "**/Cargo.lock"
+      ],
+      "ignorePaths": [
+        "crates/hotshot/workspace-hack/**"
+      ],
       "groupName": "Cargo lockfile updates"
+    },
+    {
+      "matchPackageNames": ["hashbrown*"],
+      "enabled": false
     }
   ]
 }
