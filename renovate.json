@@ -11,6 +11,9 @@
         "**/Cargo.toml",
         "**/Cargo.lock"
       ],
+      "excludePaths": [
+        "crates/hotshot/workspace-hack/**"
+      ],
       "groupName": "Cargo lockfile updates"
     }
   ]
