@@ -3,5 +3,12 @@
   "extends": [
     "config:recommended",
     ":dependencyDashboard"
+  ],
+  "packageRules": [
+    {
+      "matchManagers": ["cargo"],
+      "matchPaths": ["**/Cargo.lock"],
+      "groupName": "Cargo lockfile updates"
+    }
   ]
 }
