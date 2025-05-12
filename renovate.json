@@ -3,19 +3,5 @@
   "extends": [
     "config:recommended",
     ":dependencyDashboard"
-  ],
-  "packageRules": [
-    {
-      "matchManagers": ["cargo"],
-      "matchPaths": [
-        "**/Cargo.toml",
-        "**/Cargo.lock"
-      ],
-      "groupName": "Cargo lockfile updates"
-    },
-    {
-      "matchPackageNames": ["hashbrown*"],
-      "enabled": false
-    }
   ]
 }
