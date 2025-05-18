@@ -24,7 +24,7 @@ hotshot-task-impls = { workspace = true }
 hotshot-testing = { workspace = true }
 hotshot-types = { workspace = true }
 jf-vid = { workspace = true }
-nonempty-collections = "0.2"
+nonempty-collections = "0.3"
 quick_cache = "0.6"
 rand = { workspace = true }
 serde = { workspace = true }
